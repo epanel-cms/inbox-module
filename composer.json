@@ -1,0 +1,25 @@
+{
+    "name": "novay/epanel-inbox",
+    "description": "Module Feedback for E-Panel.",
+    "authors": [
+        {
+            "name": "Noviyanto Rahmadi",
+            "email": "novay@btekno.id"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Inbox\\Providers\\InboxServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Inbox\\": ""
+        }
+    }
+}
