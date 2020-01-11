@@ -15,7 +15,7 @@ use Modules\Inbox\Entities\Feedback;
 
 class InboxController extends Controller
 {
-    protected $title = 'Modul Feedback';
+    protected $title;
 
     /**
      * Siapkan konstruktor controller
@@ -24,6 +24,8 @@ class InboxController extends Controller
      */
     public function __construct(Feedback $data) 
     {
+        $this->title = \Lang::get('inbox::general.title');
+
         // $this->middleware('auth');
         $this->data = $data;
 
@@ -176,7 +178,7 @@ class InboxController extends Controller
             })
             ->addColumn('pesan', function($data) {
                 $return  = '<a href="'.route("$this->prefix.index").'?ajax='.$data->uuid.'" class="btn btn-sm btn-default ajax-popup-link">';
-                $return .= '    <i class="fa fa-search"></i> Baca';
+                $return .= '    <i class="fa fa-search"></i> ' . strtoupper(\Lang::get('inbox::general.read'));
                 $return .= '</a>';
                 return $return;
             })

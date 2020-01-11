@@ -22,7 +22,6 @@
                 ajax : '{!! request()->fullUrl() !!}?datatable=true', 
                 columns: [
                     { data: 'pilihan', name: 'pilihan', className: 'table-check' },
-                    // { data: 'DT_RowIndex', name: 'DT_RowIndex' },
                     { data: 'nama', name: 'nama' },
                     { data: 'telepon', name: 'telepon' },
                     { data: 'email', name: 'email' },
@@ -50,7 +49,7 @@
         @include('core::layouts.components.kosong', [
             'icon' => 'font-icon font-icon-comment',
             'judul' => $title,
-            'subjudul' => 'Sepertinya Anda belum memiliki '.str_replace('Modul ', 'data ', $title).'.', 
+            'subjudul' => @trans('inbox::general.empty'), 
         ])
 
     @else
@@ -59,7 +58,7 @@
 
             @include('core::layouts.components.top', [
                 'judul' => $title,
-                'subjudul' => 'Berikut ini adalah daftar seluruh data yang telah tersimpan di dalam database.',
+                'subjudul' => @trans('inbox::general.subtitle'),
                 'hapus' => true
             ])
 
@@ -69,11 +68,10 @@
                         <thead>
                             <tr>
                                 <th class="table-check"></th>
-                                {{-- <th width="1%">NO</th> --}}
-                                <th width="22%">NAMA</th>
-                                <th>TELEPON</th>
-                                <th>EMAIL</th>
-                                <th>ISI PESAN</th>
+                                <th width="22%">{{ @trans('inbox::general.table.name') }}</th>
+                                <th>{{ @trans('inbox::general.table.phone') }}</th>
+                                <th>{{ @trans('inbox::general.table.email') }}</th>
+                                <th>{{ @trans('inbox::general.table.content') }}</th>
                                 <th></th>
                                 <th width="1"></th>
                             </tr>
