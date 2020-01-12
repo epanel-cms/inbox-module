@@ -47,9 +47,9 @@
     @if(!$data->count())
 
         @include('core::layouts.components.kosong', [
-            'icon' => 'font-icon font-icon-comment',
+            'icon' => 'font-icon font-icon-mail',
             'judul' => $title,
-            'subjudul' => @trans('inbox::general.empty'), 
+            'subjudul' => __('inbox::general.empty'), 
         ])
 
     @else
@@ -58,7 +58,7 @@
 
             @include('core::layouts.components.top', [
                 'judul' => $title,
-                'subjudul' => @trans('inbox::general.subtitle'),
+                'subjudul' => __('inbox::general.subtitle'),
                 'hapus' => true
             ])
 
@@ -68,10 +68,10 @@
                         <thead>
                             <tr>
                                 <th class="table-check"></th>
-                                <th width="22%">{{ @trans('inbox::general.table.name') }}</th>
-                                <th>{{ @trans('inbox::general.table.phone') }}</th>
-                                <th>{{ @trans('inbox::general.table.email') }}</th>
-                                <th>{{ @trans('inbox::general.table.content') }}</th>
+                                <th width="22%">{{ __('inbox::table.columns.name') }}</th>
+                                <th>{{ __('inbox::table.columns.phone') }}</th>
+                                <th>{{ __('inbox::table.columns.email') }}</th>
+                                <th>{{ __('inbox::table.columns.content') }}</th>
                                 <th></th>
                                 <th width="1"></th>
                             </tr>

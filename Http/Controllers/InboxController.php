@@ -24,9 +24,9 @@ class InboxController extends Controller
      */
     public function __construct(Feedback $data) 
     {
-        $this->title = \Lang::get('inbox::general.title');
+        $this->title = __('inbox::general.title');
 
-        // $this->middleware('auth');
+        $this->middleware('auth');
         $this->data = $data;
 
         $this->toIndex = route('epanel.inbox.index');
@@ -178,7 +178,7 @@ class InboxController extends Controller
             })
             ->addColumn('pesan', function($data) {
                 $return  = '<a href="'.route("$this->prefix.index").'?ajax='.$data->uuid.'" class="btn btn-sm btn-default ajax-popup-link">';
-                $return .= '    <i class="fa fa-search"></i> ' . strtoupper(\Lang::get('inbox::general.read'));
+                $return .= '    <i class="fa fa-search"></i> ' . strtoupper(__('inbox::table.rows.read'));
                 $return .= '</a>';
                 return $return;
             })

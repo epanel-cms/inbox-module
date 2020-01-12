@@ -28,6 +28,6 @@ class Feedback extends Model
     }
 
 	public function operator() {
-        return $this->belongsTo('Modules\Operator\Entities\User', 'oleh');
+        return $this->belongsTo('Modules\Operator\Entities\Operator', 'oleh');
     }
 }
